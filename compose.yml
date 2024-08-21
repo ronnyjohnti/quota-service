@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+  quota-service:
+    container_name: quota-service
+    image: hyperf/hyperf:8.3-alpine-v3.19-swoole-slim
+    working_dir: /app
+    entrypoint: ["php", "bin/hyperf.php", "server:watch"]
+    volumes:
+      - ./:/app
+    ports:
+      - '9501:9501'
+    environment:
+      - APP_ENV=dev
+      - SCAN_CACHEABLE=false
+    depends_on:
+      - quota-db
+      - quota-redis
+
+  quota-db:
+    container_name: quota-db
+    image: postgres:14-alpine
+    volumes:
+      - ./.docker/quota-db:/var/lib/postgresql/data
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: db
+
+  quota-redis:
+    container_name: quota-redis
+    image: redis:latest
+    ports:
+      - '6379:6379'
