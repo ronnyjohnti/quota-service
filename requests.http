@@ -1,0 +1,22 @@
+### Criar cota
+POST http://localhost:9501/api/v1/quotas
+Content-Type: application/json
+
+{
+  "name": "Negro",
+  "created_by": 114499,
+  "validity_duration": 63113904000,
+  "status": 1
+}
+
+
+### Buscar por id
+GET http://localhost:9501/api/v1/quotas/1
+
+### Atualizar dados
+PUT http://localhost:9501/api/v1/quotas/1
+Content-Type: application/json
+
+{
+  "name": "PCD"
+}

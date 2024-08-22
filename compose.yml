@@ -1,4 +1,3 @@
-version: '3.9'
 services:
   quota-service:
     container_name: quota-service
@@ -18,15 +17,16 @@ services:
 
   quota-db:
     container_name: quota-db
-    image: postgres:14-alpine
+    image: mariadb:latest
     volumes:
-      - ./.docker/quota-db:/var/lib/postgresql/data
+      - ./.docker/quota-db:/var/lib/mysql
     ports:
-      - '5433:5432'
+      - '3306:3306'
     environment:
-      POSTGRES_PASSWORD: password
-      POSTGRES_USER: user
-      POSTGRES_DB: db
+      MARIADB_USER: ${DB_USERNAME}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_DATABASE: ${DB_DATABASE}
+      MARIADB_ROOT_PASSWORD: secret-password
 
   quota-redis:
     container_name: quota-redis
