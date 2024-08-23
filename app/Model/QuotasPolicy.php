@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace App\Model;
 
 
+use Hyperf\Database\Model\SoftDeletes;
 
-class QuotaPolicy extends Model
+class QuotasPolicy extends Model
 {
+    use SoftDeletes;
+
     public string $keyType = 'integer';
 
     public bool $incrementing = true;

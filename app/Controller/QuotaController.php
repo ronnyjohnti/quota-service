@@ -4,41 +4,62 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Model\Quota;
+use App\Model\QuotasPolicy;
 use Hyperf\Database\Model\Collection;
 use Hyperf\HttpMessage\Exception\NotFoundHttpException;
-use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\Server\Exception\ServerException;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Log\LoggerInterface;
 
 class QuotaController extends AbstractController
 {
     public function index(): Collection
     {
-        return Quota::get();
+        return QuotasPolicy::get();
     }
 
-    public function show(int $id): Quota
+    public function show(int $id): QuotasPolicy
     {
-        $quota = Quota::find($id);
+        $quota = QuotasPolicy::find($id);
         if ($quota === null) {
-            throw new NotFoundHttpException('Quota not found');
+            throw new NotFoundHttpException('QuotaPolicy not found');
         }
 
         return $quota;
     }
 
-    public function store(): Quota
+    public function store(): QuotasPolicy
     {
-        return Quota::create($this->request->all());
+        return QuotasPolicy::create($this->request->all());
     }
 
-    public function update(int $id): bool
+    public function update(int $id): ResponseInterface
     {
-        return Quota::find($id)->update($this->request->all());
+        try {
+            if (QuotasPolicy::find($id)->update($this->request->all())) {
+                return $this->response->withStatus(200);
+            }
+        } catch (\Exception $e) {
+            $this->container->get(LoggerInterface::class)
+                ->error($e->getMessage());
+            throw new ServerException();
+        }
+
+        return $this->response->withStatus(404);
     }
 
-    public function delete(): int
+    public function delete(int $id): ResponseInterface
     {
-        $id = $this->request->input('id');
-        return Quota::destroy($id);
+        try {
+            if (QuotasPolicy::destroy($id)) {
+                return $this->response->withStatus(204);
+            }
+        } catch (\Exception $e) {
+            $this->container->get(LoggerInterface::class)
+                ->error($e->getMessage());
+            throw new ServerException();
+        }
+
+        return $this->response->withStatus(404);
     }
 }

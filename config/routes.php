@@ -9,6 +9,8 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+
+use App\Controller\AgentQuotasPolicyController;
 use App\Controller\QuotaController;
 use Hyperf\HttpServer\Router\Router;
 
@@ -18,10 +20,12 @@ Router::get('/favicon.ico', function () {
     return '';
 });
 
-Router::addGroup('/api/v1/quotas', function () {
-    Router::get('', [QuotaController::class, 'index']);
-    Router::get('/{id}', [QuotaController::class, 'show']);
-    Router::post('', [QuotaController::class, 'store']);
-    Router::put('/{id}', [QuotaController::class, 'update']);
-    Router::delete('/{id}', [QuotaController::class, 'delete']);
+Router::addGroup('/api/v1', function () {
+    Router::addGroup('/quotas', function () {
+        Router::get('[/]', [QuotaController::class, 'index']);
+        Router::get('/{id}[/]', [QuotaController::class, 'show']);
+        Router::post('[/]', [QuotaController::class, 'store']);
+        Router::put('/{id}[/]', [QuotaController::class, 'update']);
+        Router::delete('/{id}[/]', [QuotaController::class, 'delete']);
+    });
 });
