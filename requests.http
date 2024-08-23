@@ -5,10 +5,9 @@ Content-Type: application/json
 {
   "name": "Negro",
   "created_by": 114499,
-  "validity_duration": 63113904000,
+  "validity_duration": 2,
   "status": 1
 }
-
 
 ### Buscar por id
 GET http://localhost:9501/api/v1/quotas/1
@@ -18,5 +17,41 @@ PUT http://localhost:9501/api/v1/quotas/1
 Content-Type: application/json
 
 {
-  "name": "PCD"
+  "name": "PCD",
+  "updated_by": 114499,
+  "validity_duration": 4
+}
+
+###
+GET http://localhost:9501/api/v1/quotas
+
+###
+DELETE http://localhost:9501/api/v1/quotas/5
+
+###
+GET http://localhost:9501/api/v1/agent-quotas
+###
+GET http://localhost:9501/api/v1/agent-quotas/1
+###
+POST http://localhost:9501/api/v1/agent-quotas
+Content-Type: application/json
+
+{
+  "created_by": 114499,
+  "quotas_policy_id": 1,
+  "agent_id": 125678,
+  "start_date": "2024-08-23 16:48:25.000",
+  "end_date": "2026-08-23 16:48:25.000"
+}
+
+###
+PUT http://localhost:9501/api/v1/agent-quotas
+Content-Type: application/json
+
+{
+  "created_by": 114499,
+  "quotas_policy_id": 2,
+  "agent_id": 125678,
+  "start_date": "2024-08-23 16:48:25.000",
+  "end_date": "2028-08-23 16:48:25.000"
 }
