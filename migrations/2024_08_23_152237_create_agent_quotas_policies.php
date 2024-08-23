@@ -4,21 +4,20 @@ use Hyperf\Database\Schema\Schema;
 use Hyperf\Database\Schema\Blueprint;
 use Hyperf\Database\Migrations\Migration;
 
-class CreateQuotasPoliciesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('quotas_policies', function (Blueprint $table) {
-            $table->integerIncrements('id');
-            $table->string('name', 255);
-            $table->string('description', 500)->nullable();
-            $table->bigInteger('validity_duration');
-            $table->integer('status');
+        Schema::create('agent_quotas_policies', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('agent_id');
+            $table->integer('quotas_policy_id');
+            $table->timestamp('start_date');
+            $table->timestamp('end_date');
             $table->integer('created_by');
-            $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
@@ -30,6 +29,6 @@ class CreateQuotasPoliciesTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quotas_policies');
+        Schema::dropIfExists('agent_quotas_policies');
     }
-}
+};
