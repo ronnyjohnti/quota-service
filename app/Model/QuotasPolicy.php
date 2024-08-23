@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace App\Model;
 
 
-/**
- *
- */
-class Quota extends Model
+
+class QuotaPolicy extends Model
 {
     public string $keyType = 'integer';
 

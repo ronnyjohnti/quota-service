@@ -1,13 +1,17 @@
 {
-    "name": "hyperf/hyperf-skeleton",
+    "name": "secultce/quota-service",
     "type": "project",
     "keywords": [
-        "php",
-        "swoole",
-        "framework",
-        "hyperf",
+        "culture",
         "microservice",
-        "middleware"
+        "quota"
+    ],
+    "authors": [
+        {
+            "name": "Ronny John",
+            "email": "me@ronnyjohnti.dev",
+            "homepage": "https://ronnyjohnti.dev"
+        }
     ],
     "description": "A coroutine framework that focuses on hyperspeed and flexible, specifically use for build microservices and middlewares.",
     "license": "Apache-2.0",
