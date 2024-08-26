@@ -28,4 +28,11 @@ Router::addGroup('/api/v1', function () {
         Router::put('/{id}[/]', [QuotaController::class, 'update']);
         Router::delete('/{id}[/]', [QuotaController::class, 'delete']);
     });
+
+    Router::addGroup('/agent-quotas', function () {
+        Router::get('[/]', [AgentQuotasPolicyController::class, 'index']);
+        Router::get('/{id}[/]', [AgentQuotasPolicyController::class, 'show']);
+        Router::addRoute(['POST', 'PUT'], '[/]', [AgentQuotasPolicyController::class, 'store']);
+        Router::delete('/{id}[/]', [AgentQuotasPolicyController::class, 'delete']);
+    });
 });
