@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\QuotasPolicy;
+use Exception;
 use Hyperf\Database\Model\Collection;
 use Hyperf\HttpMessage\Exception\NotFoundHttpException;
 use Hyperf\Server\Exception\ServerException;
@@ -39,7 +40,7 @@ class QuotaController extends AbstractController
             if (QuotasPolicy::find($id)->update($this->request->all())) {
                 return $this->response->withStatus(200);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->container->get(LoggerInterface::class)
                 ->error($e->getMessage());
             throw new ServerException();
@@ -54,7 +55,7 @@ class QuotaController extends AbstractController
             if (QuotasPolicy::destroy($id)) {
                 return $this->response->withStatus(204);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->container->get(LoggerInterface::class)
                 ->error($e->getMessage());
             throw new ServerException();

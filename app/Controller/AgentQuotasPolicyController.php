@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Model\AgentQuotasPolicy;
+use Exception;
 use Hyperf\Database\Model\Collection;
 
 class AgentQuotasPolicyController extends AbstractController
@@ -27,6 +30,9 @@ class AgentQuotasPolicyController extends AbstractController
         return AgentQuotasPolicy::updateOrCreate($attributes, $data);
     }
 
+    /**
+     * @throws Exception
+     */
     public function delete(int $id): void
     {
         $this->response->withStatus(204);
