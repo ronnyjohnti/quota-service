@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace App\Model;
 
 use Hyperf\Database\Model\SoftDeletes;
+use Hyperf\Swagger\Annotation as SA;
 
+#[SA\HyperfServer('http')]
+#[SA\Schema(ref: QuotasPolicy::class)]
 class QuotasPolicy extends Model
 {
     use SoftDeletes;
