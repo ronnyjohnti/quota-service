@@ -6,12 +6,14 @@ use App\Controller\QuotaController;
 use App\Middleware\ApiTokenMiddleware;
 use App\Middleware\CorsMiddleware;
 use Hyperf\HttpServer\Router\Router;
+use Hyperf\Swagger\Annotation as SA;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@index');
 
 Router::get('/favicon.ico', function () {
     return '';
 });
+
 
 Router::addGroup('/api/v1', function () {
     Router::addGroup('/quotas', function () {

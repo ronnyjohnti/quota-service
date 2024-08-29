@@ -24,6 +24,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:9501/api/v1/quotas
+Authorization: 26243157766b1c1b4d269ad254e113e3c89eae83478efcd38f5100db69b843e903cd445feda1f5895148cfc0f34e56bf756555b64bdd6efd6acde67ac06fbe23
 
 ###
 DELETE http://localhost:9501/api/v1/quotas/5
@@ -34,6 +35,7 @@ GET http://localhost:9501/api/v1/agent-quotas
 GET http://localhost:9501/api/v1/agent-quotas/1
 ###
 POST http://localhost:9501/api/v1/agent-quotas
+Authorization: 26243157766b1c1b4d269ad254e113e3c89eae83478efcd38f5100db69b843e903cd445feda1f5895148cfc0f34e56bf756555b64bdd6efd6acde67ac06fbe23
 Content-Type: application/json
 
 {

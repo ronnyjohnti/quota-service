@@ -2,7 +2,7 @@
 declare (strict_types=1);
 namespace App\Schema;
 
-use App\Schema\QuotasPolicySchema;
+use App\Model\QuotasPolicy;
 use Hyperf\Swagger\Annotation\Property;
 use Hyperf\Swagger\Annotation\Schema;
 use JsonSerializable;
@@ -16,7 +16,7 @@ class AgentQuotasPolicySchema implements JsonSerializable
     #[Property(property: 'agent_id', title: '', type: 'int')]
     public ?int $agentId;
     #[Property(property: 'quotas_policy', schema: 'QuotasPolicySchema')]
-    public ?int $quotasPolicy;
+    public ?QuotasPolicy $quotasPolicy;
     #[Property(property: 'start_date', title: '', type: 'mixed')]
     public mixed $startDate;
     #[Property(property: 'end_date', title: '', type: 'mixed')]
@@ -35,7 +35,7 @@ class AgentQuotasPolicySchema implements JsonSerializable
     {
         $this->id = $model->id;
         $this->agentId = $model->agent_id;
-        $this->quotasPolicy = $model->quotas_policy;
+        $this->quotasPolicy = $model->quotasPolicy;
         $this->startDate = $model->start_date;
         $this->endDate = $model->end_date;
         $this->createdBy = $model->created_by;
@@ -44,7 +44,7 @@ class AgentQuotasPolicySchema implements JsonSerializable
         $this->createdAt = $model->created_at;
         $this->updatedAt = $model->updated_at;
     }
-    public function jsonSerialize() : mixed
+    public function jsonSerialize() : array
     {
         return [
             'id' => $this->id,
