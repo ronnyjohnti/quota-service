@@ -2,36 +2,39 @@
 declare (strict_types=1);
 namespace App\Schema;
 
+use Carbon\Carbon;
+use DateTime;
 use Hyperf\Swagger\Annotation\Property;
 use Hyperf\Swagger\Annotation\Schema;
 use JsonSerializable;
+
 #[Schema(title: 'QuotasPolicySchema')]
 class QuotasPolicySchema implements JsonSerializable
 {
     const string REF = '#/components/schemas/QuotasPolicySchema';
 
-    #[Property(property: 'id', title: '', type: 'int')]
+    #[Property(property: 'id', title: '', type: 'integer')]
     public ?int $id;
     #[Property(property: 'name', title: '', type: 'string')]
     public ?string $name;
     #[Property(property: 'description', title: '', type: 'string')]
     public ?string $description;
-    #[Property(property: 'validity_duration', title: '', type: 'int')]
+    #[Property(property: 'validity_duration', title: '', type: 'integer')]
     public ?int $validityDuration;
-    #[Property(property: 'status', title: '', type: 'int')]
+    #[Property(property: 'status', title: '', type: 'integer')]
     public ?int $status;
-    #[Property(property: 'created_by', title: '', type: 'int')]
+    #[Property(property: 'created_by', title: '', type: 'integer')]
     public ?int $createdBy;
-    #[Property(property: 'updated_by', title: '', type: 'int')]
+    #[Property(property: 'updated_by', title: '', type: 'integer')]
     public ?int $updatedBy;
-    #[Property(property: 'deleted_by', title: '', type: 'int')]
+    #[Property(property: 'deleted_by', title: '', type: 'integer')]
     public ?int $deletedBy;
-    #[Property(property: 'deleted_at', title: '', type: 'mixed')]
-    public mixed $deletedAt;
-    #[Property(property: 'created_at', title: '', type: 'mixed')]
-    public mixed $createdAt;
-    #[Property(property: 'updated_at', title: '', type: 'mixed')]
-    public mixed $updatedAt;
+    #[Property(property: 'deleted_at', title: '', type: 'string')]
+    public DateTime|Carbon $deletedAt;
+    #[Property(property: 'created_at', title: '', type: 'string')]
+    public DateTime|Carbon $createdAt;
+    #[Property(property: 'updated_at', title: '', type: 'string')]
+    public DateTime|Carbon $updatedAt;
     public function __construct(\App\Model\QuotasPolicy $model)
     {
         $this->id = $model->id;
