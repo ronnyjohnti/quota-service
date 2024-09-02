@@ -25,8 +25,10 @@ class ApiTokenMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $apiKey = $request->getHeader('Authorization');
-        if (! in_array(env('AUTHORIZATION_API_KEY'), $apiKey)) {
+        $authenticationHeaderValues = $request->getHeader('Authorization');
+        $envApiKey = env('AUTHORIZATION_API_KEY');
+
+        if (! in_array($envApiKey, $authenticationHeaderValues) && ! in_array('Bearer ' . $envApiKey, $authenticationHeaderValues)) {
             return $this->response->withStatus(401);
         }
 
