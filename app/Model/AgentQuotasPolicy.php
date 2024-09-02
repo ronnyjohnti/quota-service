@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Hyperf\Database\Model\Relations\BelongsTo;
 use Hyperf\Database\Model\SoftDeletes;
 
 class AgentQuotasPolicy extends Model
@@ -16,10 +17,14 @@ class AgentQuotasPolicy extends Model
 
     protected array $fillable = [
         'agent_id',
-        'quotas_policy_id',
         'start_date',
         'end_date',
         'created_by',
         'deleted_by',
     ];
+
+    public function quotasPolicy(): BelongsTo
+    {
+        return $this->belongsTo(QuotasPolicy::class, 'quotas_policy_id');
+    }
 }
