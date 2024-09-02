@@ -19,6 +19,8 @@ class QuotasPolicy extends Model
         'description',
         'validity_duration',
         'status',
+        'show_in_dashboard',
+        'show_in_opportunity',
         'created_by',
         'updated_by',
         'deleted_by',

@@ -18,6 +18,8 @@ class CreateQuotasPoliciesTable extends Migration
             $table->string('description', 500)->nullable();
             $table->bigInteger('validity_duration');
             $table->integer('status');
+            $table->boolean('show_in_dashboard')->default(false);
+            $table->boolean('show_in_opportunity')->default(true);
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();
