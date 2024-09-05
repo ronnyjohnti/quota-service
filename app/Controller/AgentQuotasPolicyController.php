@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\AgentQuotasPolicy;
+use App\Model\QuotasPolicy;
 use App\Schema\AgentQuotasPolicySchema;
+use Carbon\Carbon;
 use Exception;
 use Hyperf\Database\Model\Collection;
 use Hyperf\Swagger\Annotation as SA;
@@ -90,6 +92,9 @@ class AgentQuotasPolicyController extends AbstractController
             'agent_id' => $data['agent_id'],
             'quotas_policy_id' => $data['quotas_policy_id'],
         ];
+
+        $quota = QuotasPolicy::find($data['quotas_policy_id']);
+        $data['end_date'] = (new Carbon($data['start_date']))->addYears($quota->validity_duration);
         return AgentQuotasPolicy::updateOrCreate($attributes, $data);
     }
 

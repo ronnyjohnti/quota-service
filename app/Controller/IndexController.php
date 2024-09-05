@@ -14,7 +14,7 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 #[Controller]
 class IndexController extends AbstractController
 {
-    #[GetMapping(path: '')]
+    #[GetMapping(path: '[/]')]
     public function index(): ResponseInterface
     {
         $this->response->write(<<<'HTML'
