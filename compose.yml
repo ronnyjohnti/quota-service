@@ -1,26 +1,31 @@
 services:
   quota-service:
     container_name: quota-service
-    image: hyperf/hyperf:8.3-alpine-v3.19-swoole-slim
+#    image: hyperf/hyperf:8.3-alpine-v3.19-swoole-slim
+    build:
+      dockerfile: ./Dockerfile
     working_dir: /app
     entrypoint: ["php", "bin/hyperf.php", "server:watch"]
     volumes:
       - ./:/app
     ports:
       - '9501:9501'
-      - '9500:9500'
     environment:
       - APP_ENV=dev
       - SCAN_CACHEABLE=false
+      - URL_MAPAS=2
     depends_on:
       - quota-db
       - quota-redis
+    networks:
+      - quota-net
+      - lab
 
   quota-db:
     container_name: quota-db
     image: mariadb:latest
     volumes:
-      - ./.docker/quota-db:/var/lib/mysql
+      - quota-db:/var/lib/mysql
     ports:
       - '3306:3306'
     environment:
@@ -28,9 +33,27 @@ services:
       MARIADB_PASSWORD: ${DB_PASSWORD}
       MARIADB_DATABASE: ${DB_DATABASE}
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    networks:
+      - quota-net
 
   quota-redis:
     container_name: quota-redis
     image: redis:latest
     ports:
       - '6379:6379'
+    networks:
+      - quota-net
+
+volumes:
+  quota-db:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./.docker/quota-db
+
+networks:
+  lab:
+    name: dev-scripts_lab
+    external: true
+  quota-net:

@@ -30,4 +30,20 @@ return [
             ],
         ],
     ],
+    'mapas' => [
+        'driver' => env('MAPAS_DB_DRIVER', 'pgsql'),
+        'host' => env('MAPAS_DB_HOST', 'localhost'),
+        'database' => env('MAPAS_DB_DATABASE', 'mapas'),
+        'port' => env('MAPAS_DB_PORT', 5432),
+        'username' => env('MAPAS_DB_USERNAME', 'mapas'),
+        'password' => env('MAPAS_DB_PASSWORD', 'mapas'),
+        'charset' => env('MAPAS_DB_CHARSET', 'utf8'),
+        'commands' => [
+            'gen:model' => [
+                'path' => 'app/Model/Mapas',
+                'force_casts' => true,
+                'inheritance' => 'Model',
+            ],
+        ],
+    ],
 ];

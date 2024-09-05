@@ -21,6 +21,7 @@ class AgentQuotasPolicy extends Model
         'end_date',
         'created_by',
         'deleted_by',
+        'quotas_policy_id',
     ];
 
     public function quotasPolicy(): BelongsTo

@@ -19,7 +19,14 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
     SCAN_CACHEABLE=(true)
 
 # update
-RUN set -ex \
+RUN apk update \
+    && apk add --no-cache postgresql-dev \
+    php83-pdo_pgsql \
+    php83-pgsql \
+    && rm -rf /var/cache/apk/* \
+#    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+#    && docker-php-ext-install pgsql pdo_pgsql \
+    && set -ex \
     # show php version and extensions
     && php -v \
     && php -m \

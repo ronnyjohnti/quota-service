@@ -47,7 +47,7 @@ class AgentQuotasPolicy extends Seeder
 
         foreach ($data as $item) {
             $policy = QuotasPolicyModel::get()->random(1)->first();
-            $item['quotas_policy'] = $policy;
+            $item['quotas_policy_id'] = $policy->id;
             $item['start_date'] = Carbon::now()->subDays(rand(0, 365));
             $item['end_date'] = $item['start_date']->copy()->addYears($policy->validity_duration);
             AgentQuotasPolicyModel::create($item);
