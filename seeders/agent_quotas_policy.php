@@ -2,17 +2,15 @@
 
 declare(strict_types=1);
 
-use Carbon\Carbon;
-use Hyperf\Database\Seeders\Seeder;
 use App\Model\AgentQuotasPolicy as AgentQuotasPolicyModel;
 use App\Model\QuotasPolicy as QuotasPolicyModel;
+use Carbon\Carbon;
+use Hyperf\Database\Seeders\Seeder;
 
 class AgentQuotasPolicy extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run(): void
     {

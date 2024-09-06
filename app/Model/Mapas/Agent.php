@@ -20,8 +20,8 @@ use Hyperf\DbConnection\Model\Model;
  * @property string $long_description
  * @property string $create_timestamp
  * @property int $status
- * @property boolean $is_verified
- * @property boolean $public_location
+ * @property bool $is_verified
+ * @property bool $public_location
  * @property string $update_timestamp
  * @property string $subsite_id
  */
@@ -37,7 +37,7 @@ class Agent extends Model
         'type' => 'integer',
         'status' => 'integer',
         'is_verified' => 'boolean',
-        'public_location' => 'boolean'
+        'public_location' => 'boolean',
     ];
 
     public function quotasPolicy(): HasMany

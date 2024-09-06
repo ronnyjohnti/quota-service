@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07238f7e1db6bcc29c2fa2ac96ae04a1",
+    "content-hash": "0da20b4c2f3965117bbea1b614c64093",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -1397,16 +1397,16 @@
         },
         {
             "name": "hyperf/database",
-            "version": "v3.1.38",
+            "version": "v3.1.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/database.git",
-                "reference": "5e1bd427bae725f68f9e123c50c64dbffbb81d40"
+                "reference": "161755c8a3fc11a3a342f4d7da549f00aef8a6d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/database/zipball/5e1bd427bae725f68f9e123c50c64dbffbb81d40",
-                "reference": "5e1bd427bae725f68f9e123c50c64dbffbb81d40",
+                "url": "https://api.github.com/repos/hyperf/database/zipball/161755c8a3fc11a3a342f4d7da549f00aef8a6d6",
+                "reference": "161755c8a3fc11a3a342f4d7da549f00aef8a6d6",
                 "shasum": ""
             },
             "require": {
@@ -1466,7 +1466,73 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-08-23T12:13:57+00:00"
+            "time": "2024-09-05T02:27:49+00:00"
+        },
+        {
+            "name": "hyperf/database-pgsql",
+            "version": "v3.1.39",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/database-pgsql.git",
+                "reference": "f953ae36032d2d6b68f258bc35c93ac619f1e214"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/database-pgsql/zipball/f953ae36032d2d6b68f258bc35c93ac619f1e214",
+                "reference": "f953ae36032d2d6b68f258bc35c93ac619f1e214",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/collection": "~3.1.0",
+                "hyperf/database": "~3.1.0",
+                "hyperf/support": "~3.1.0",
+                "hyperf/tappable": "~3.1.0",
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\Database\\PgSQL\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Database\\PgSQL\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A pgsql handler for hyperf/database.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "database",
+                "hyperf",
+                "pgsql",
+                "php",
+                "swoole"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "funding": [
+                {
+                    "url": "https://hyperf.wiki/#/zh-cn/donate",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://opencollective.com/hyperf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2024-09-05T02:27:49+00:00"
         },
         {
             "name": "hyperf/db-connection",
@@ -1971,16 +2037,16 @@
         },
         {
             "name": "hyperf/framework",
-            "version": "v3.1.38",
+            "version": "v3.1.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/framework.git",
-                "reference": "4ffe5bf926c2aac5db921daa185b9e1e10eef4eb"
+                "reference": "e3e018c61d5389819cfa1255a1b88ca5e2c21f99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/framework/zipball/4ffe5bf926c2aac5db921daa185b9e1e10eef4eb",
-                "reference": "4ffe5bf926c2aac5db921daa185b9e1e10eef4eb",
+                "url": "https://api.github.com/repos/hyperf/framework/zipball/e3e018c61d5389819cfa1255a1b88ca5e2c21f99",
+                "reference": "e3e018c61d5389819cfa1255a1b88ca5e2c21f99",
                 "shasum": ""
             },
             "require": {
@@ -2044,7 +2110,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-08-28T06:15:46+00:00"
+            "time": "2024-08-29T07:00:38+00:00"
         },
         {
             "name": "hyperf/guzzle",
@@ -6519,16 +6585,16 @@
         },
         {
             "name": "hyperf/watcher",
-            "version": "v3.1.32",
+            "version": "v3.1.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/watcher.git",
-                "reference": "4e7ee37b3f564905a5cd2b40f505c573d0a9b8dc"
+                "reference": "a7fa38bc656f20c79cc3388bb796d826ae848036"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/watcher/zipball/4e7ee37b3f564905a5cd2b40f505c573d0a9b8dc",
-                "reference": "4e7ee37b3f564905a5cd2b40f505c573d0a9b8dc",
+                "url": "https://api.github.com/repos/hyperf/watcher/zipball/a7fa38bc656f20c79cc3388bb796d826ae848036",
+                "reference": "a7fa38bc656f20c79cc3388bb796d826ae848036",
                 "shasum": ""
             },
             "require": {
@@ -6569,7 +6635,7 @@
             ],
             "support": {
                 "issues": "https://github.com/hyperf/watcher/issues",
-                "source": "https://github.com/hyperf/watcher/tree/v3.1.32"
+                "source": "https://github.com/hyperf/watcher/tree/v3.1.39"
             },
             "funding": [
                 {
@@ -6581,7 +6647,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-07-13T12:44:54+00:00"
+            "time": "2024-08-29T07:00:38+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -6846,16 +6912,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.0",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "384af967d35b2162f69526c7276acadce534d0e1"
+                "reference": "d8ed7fffa66de1db0d2972267d8ed1d8fa0fe5a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/384af967d35b2162f69526c7276acadce534d0e1",
-                "reference": "384af967d35b2162f69526c7276acadce534d0e1",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d8ed7fffa66de1db0d2972267d8ed1d8fa0fe5a2",
+                "reference": "d8ed7fffa66de1db0d2972267d8ed1d8fa0fe5a2",
                 "shasum": ""
             },
             "require": {
@@ -6900,7 +6966,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-27T09:18:05+00:00"
+            "time": "2024-09-03T19:55:22+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -7225,16 +7291,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.30",
+            "version": "10.5.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b15524febac0153876b4ba9aab3326c2ee94c897"
+                "reference": "f069f46840445d37a4e6f0de8c5879598f9c4327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b15524febac0153876b4ba9aab3326c2ee94c897",
-                "reference": "b15524febac0153876b4ba9aab3326c2ee94c897",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f069f46840445d37a4e6f0de8c5879598f9c4327",
+                "reference": "f069f46840445d37a4e6f0de8c5879598f9c4327",
                 "shasum": ""
             },
             "require": {
@@ -7248,7 +7314,7 @@
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.1",
-                "phpunit/php-code-coverage": "^10.1.15",
+                "phpunit/php-code-coverage": "^10.1.16",
                 "phpunit/php-file-iterator": "^4.1.0",
                 "phpunit/php-invoker": "^4.0.0",
                 "phpunit/php-text-template": "^3.0.1",
@@ -7306,7 +7372,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.30"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.32"
             },
             "funding": [
                 {
@@ -7322,7 +7388,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-13T06:09:37+00:00"
+            "time": "2024-09-04T13:33:39+00:00"
         },
         {
             "name": "react/cache",
@@ -8772,16 +8838,16 @@
         },
         {
             "name": "swoole/ide-helper",
-            "version": "5.1.3",
+            "version": "5.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swoole/ide-helper.git",
-                "reference": "9cfc6669b83be0fa6fface91a6f372a0bb84bf1a"
+                "reference": "e63299f488bf8332404ce4f80142a2ed1397edde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/9cfc6669b83be0fa6fface91a6f372a0bb84bf1a",
-                "reference": "9cfc6669b83be0fa6fface91a6f372a0bb84bf1a",
+                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/e63299f488bf8332404ce4f80142a2ed1397edde",
+                "reference": "e63299f488bf8332404ce4f80142a2ed1397edde",
                 "shasum": ""
             },
             "type": "library",
@@ -8798,9 +8864,9 @@
             "description": "IDE help files for Swoole.",
             "support": {
                 "issues": "https://github.com/swoole/ide-helper/issues",
-                "source": "https://github.com/swoole/ide-helper/tree/5.1.3"
+                "source": "https://github.com/swoole/ide-helper/tree/5.1.4"
             },
-            "time": "2024-06-17T05:45:20+00:00"
+            "time": "2024-09-03T04:39:02+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -9500,7 +9566,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.1"
+        "php": ">=8.1",
+        "ext-pdo_mysql": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"

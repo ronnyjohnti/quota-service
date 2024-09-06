@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-use Hyperf\Database\Seeders\Seeder;
 use App\Model\QuotasPolicy as QuotasPolicyModel;
+use Hyperf\Database\Seeders\Seeder;
 
 class QuotasPolicy extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run(): void
     {

@@ -1,7 +1,10 @@
 <?php
-declare (strict_types=1);
+
+declare(strict_types=1);
+
 namespace App\Schema;
 
+use App\Model\AgentQuotasPolicy;
 use Carbon\Carbon;
 use DateTime;
 use Hyperf\Swagger\Annotation\Property;
@@ -11,29 +14,39 @@ use JsonSerializable;
 #[Schema(title: 'AgentQuotasPolicySchema')]
 class AgentQuotasPolicySchema implements JsonSerializable
 {
-    const string REF = '#/components/schemas/AgentQuotasPolicySchema';
+    public const string REF = '#/components/schemas/AgentQuotasPolicySchema';
 
     #[Property(property: 'id', title: '', type: 'integer', example: 1)]
     public ?int $id;
+
     #[Property(property: 'agent_id', title: '', type: 'integer', example: 114499)]
     public ?int $agentId;
-    #[Property(property: 'quotas_policy', schema: 'QuotasPolicySchema', type: 'object',)]
+
+    #[Property(property: 'quotas_policy', schema: 'QuotasPolicySchema', type: 'object', )]
     public ?object $quotasPolicy;
+
     #[Property(property: 'start_date', title: '', type: 'string', example: new Carbon())]
-    public DateTime|Carbon $startDate;
+    public Carbon|DateTime $startDate;
+
     #[Property(property: 'end_date', title: '', type: 'string', example: new Carbon('now'))]
-    public DateTime|Carbon $endDate;
+    public Carbon|DateTime $endDate;
+
     #[Property(property: 'created_by', title: '', type: 'integer')]
     public ?int $createdBy;
+
     #[Property(property: 'deleted_by', title: '', type: 'integer')]
     public ?int $deletedBy;
+
     #[Property(property: 'deleted_at', title: '', type: 'string')]
-    public DateTime|Carbon $deletedAt;
+    public Carbon|DateTime $deletedAt;
+
     #[Property(property: 'created_at', title: '', type: 'string')]
-    public DateTime|Carbon $createdAt;
+    public Carbon|DateTime $createdAt;
+
     #[Property(property: 'updated_at', title: '', type: 'string')]
-    public DateTime|Carbon $updatedAt;
-    public function __construct(\App\Model\AgentQuotasPolicy $model)
+    public Carbon|DateTime $updatedAt;
+
+    public function __construct(AgentQuotasPolicy $model)
     {
         $this->id = $model->id;
         $this->agentId = $model->agent_id;
@@ -46,7 +59,8 @@ class AgentQuotasPolicySchema implements JsonSerializable
         $this->createdAt = $model->created_at;
         $this->updatedAt = $model->updated_at;
     }
-    public function jsonSerialize() : array
+
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->id,

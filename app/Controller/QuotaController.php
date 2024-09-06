@@ -92,18 +92,18 @@ class QuotaController extends AbstractController
         summary: 'Criação de uma cota',
         security: [['apiKey' => []]],
         requestBody: new SA\RequestBody(
-            description: "Detalhes dos campos para criar cotas",
+            description: 'Detalhes dos campos para criar cotas',
             required: true,
             content: new SA\JsonContent(
-                required: ["name", "validity_duration", "status", "created_by"],
+                required: ['name', 'validity_duration', 'status', 'created_by'],
                 properties: [
-                    new SA\Property(property: "name", description: "Name of the quotas policy", type: "string"),
-                    new SA\Property(property: "description", description: "Description of the quotas policy", type: "string"),
-                    new SA\Property(property: "validity_duration", description: "Validity duration in days", type: "integer"),
-                    new SA\Property(property: "status", description: "Status of the quotas policy", type: "integer"),
-                    new SA\Property(property: "created_by", description: "ID of the user who created the policy", type: "integer"),
-                    new SA\Property(property: "updated_by", description: "ID of the user who last updated the policy", type: "integer"),
-                    new SA\Property(property: "deleted_by", description: "ID of the user who deleted the policy", type: "integer"),
+                    new SA\Property(property: 'name', description: 'Name of the quotas policy', type: 'string'),
+                    new SA\Property(property: 'description', description: 'Description of the quotas policy', type: 'string'),
+                    new SA\Property(property: 'validity_duration', description: 'Validity duration in days', type: 'integer'),
+                    new SA\Property(property: 'status', description: 'Status of the quotas policy', type: 'integer'),
+                    new SA\Property(property: 'created_by', description: 'ID of the user who created the policy', type: 'integer'),
+                    new SA\Property(property: 'updated_by', description: 'ID of the user who last updated the policy', type: 'integer'),
+                    new SA\Property(property: 'deleted_by', description: 'ID of the user who deleted the policy', type: 'integer'),
                 ]
             ),
         ),
@@ -111,7 +111,7 @@ class QuotaController extends AbstractController
         responses: [
             new SA\Response(response: 201, description: 'Quota created', content: new SA\JsonContent(type: 'integer')),
             new SA\Response(response: 401, description: 'Unauthorized'),
-            new SA\Response(response: 500, description: 'Internal Server Error')
+            new SA\Response(response: 500, description: 'Internal Server Error'),
         ]
     )]
     public function store(): ResponseInterface
@@ -134,18 +134,18 @@ class QuotaController extends AbstractController
         summary: 'Atualização de uma cota',
         security: [['apiKey' => []]],
         requestBody: new SA\RequestBody(
-            description: "Detalhes dos campos para criar cotas",
+            description: 'Detalhes dos campos para criar cotas',
             required: true,
             content: new SA\JsonContent(
-                required: ["updated_by"],
+                required: ['updated_by'],
                 properties: [
-                    new SA\Property(property: "name", description: "Name of the quotas policy", type: "string"),
-                    new SA\Property(property: "description", description: "Description of the quotas policy", type: "string"),
-                    new SA\Property(property: "validity_duration", description: "Validity duration in days", type: "integer"),
-                    new SA\Property(property: "status", description: "Status of the quotas policy", type: "integer"),
-                    new SA\Property(property: "created_by", description: "ID of the user who created the policy", type: "integer"),
-                    new SA\Property(property: "updated_by", description: "ID of the user who last updated the policy", type: "integer"),
-                    new SA\Property(property: "deleted_by", description: "ID of the user who deleted the policy", type: "integer"),
+                    new SA\Property(property: 'name', description: 'Name of the quotas policy', type: 'string'),
+                    new SA\Property(property: 'description', description: 'Description of the quotas policy', type: 'string'),
+                    new SA\Property(property: 'validity_duration', description: 'Validity duration in days', type: 'integer'),
+                    new SA\Property(property: 'status', description: 'Status of the quotas policy', type: 'integer'),
+                    new SA\Property(property: 'created_by', description: 'ID of the user who created the policy', type: 'integer'),
+                    new SA\Property(property: 'updated_by', description: 'ID of the user who last updated the policy', type: 'integer'),
+                    new SA\Property(property: 'deleted_by', description: 'ID of the user who deleted the policy', type: 'integer'),
                 ]
             ),
         ),
@@ -155,7 +155,7 @@ class QuotaController extends AbstractController
             new SA\Response(response: 201, description: 'Quota updated'),
             new SA\Response(response: 401, description: 'Unauthorized'),
             new SA\Response(response: 404, description: 'Not found'),
-            new SA\Response(response: 500, description: 'Internal Server Error')
+            new SA\Response(response: 500, description: 'Internal Server Error'),
         ],
     )]
     public function update(int $id): ResponseInterface
@@ -174,25 +174,25 @@ class QuotaController extends AbstractController
     }
 
     #[SA\Delete(
-        path: "/quotas/{id}",
-        description: "Exclui uma política de cotas identificada pelo seu ID. Retorna um status 204 se for bem-sucedido, ou um 404 se não for encontrado.",
-        summary: "Excluir uma política de cotas por ID",
+        path: '/quotas/{id}',
+        description: 'Exclui uma política de cotas identificada pelo seu ID. Retorna um status 204 se for bem-sucedido, ou um 404 se não for encontrado.',
+        summary: 'Excluir uma política de cotas por ID',
         security: [['apiKey' => []]],
-        tags: ["Cotas"],
+        tags: ['Cotas'],
         parameters: [
             new SA\Parameter(
-                name: "id",
-                description: "ID da política de cotas a ser excluída",
-                in: "path",
+                name: 'id',
+                description: 'ID da política de cotas a ser excluída',
+                in: 'path',
                 required: true,
-                schema: new SA\Schema(type: "integer")
-            )
+                schema: new SA\Schema(type: 'integer')
+            ),
         ],
         responses: [
-            new SA\Response(response: 204, description: "Quotas policy deleted successfully"),
+            new SA\Response(response: 204, description: 'Quotas policy deleted successfully'),
             new SA\Response(response: 401, description: 'Unauthorized'),
-            new SA\Response(response: 404, description: "Not Found"),
-            new SA\Response(response: 500, description: "Internal Server Error"),
+            new SA\Response(response: 404, description: 'Not Found'),
+            new SA\Response(response: 500, description: 'Internal Server Error'),
         ],
     )]
     public function delete(int $id): ResponseInterface

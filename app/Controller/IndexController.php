@@ -10,7 +10,6 @@ use Hyperf\HttpServer\Annotation\GetMapping;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 
 /** @TODO: Estudar se existe uma maneira melhor de fazer isso */
-
 #[Controller]
 class IndexController extends AbstractController
 {

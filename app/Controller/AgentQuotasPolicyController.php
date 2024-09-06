@@ -71,7 +71,7 @@ class AgentQuotasPolicyController extends AbstractController
         summary: 'Relacionamento entre agente e cota',
         security: [['apiKey' => []]],
         requestBody: new SA\RequestBody(
-            description: "Detalhes dos campos para criar cotas",
+            description: 'Detalhes dos campos para criar cotas',
             required: true,
             content: [new SA\MediaType(
                 mediaType: 'application/json',
@@ -82,7 +82,7 @@ class AgentQuotasPolicyController extends AbstractController
         responses: [
             new SA\Response(response: 201, description: 'Quota created', content: new SA\JsonContent(type: 'integer')),
             new SA\Response(response: 401, description: 'Unauthorized'),
-            new SA\Response(response: 500, description: 'Internal Server Error')
+            new SA\Response(response: 500, description: 'Internal Server Error'),
         ]
     )]
     public function store(): AgentQuotasPolicy
