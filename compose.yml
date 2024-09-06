@@ -5,7 +5,7 @@ services:
     build:
       dockerfile: ./Dockerfile
     working_dir: /app
-    entrypoint: ["php", "bin/hyperf.php", "server:watch"]
+    entrypoint: [ "php", "bin/hyperf.php", "server:watch" ]
     volumes:
       - ./:/app
     ports:
@@ -54,6 +54,6 @@ volumes:
 
 networks:
   lab:
-    name: dev-scripts_lab
+    name: dev-scripts_lab # Rede que está o container do Mapas
     external: true
   quota-net:

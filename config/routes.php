@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use App\Controller\AgentController;
 use App\Controller\AgentQuotasPolicyController;
 use App\Controller\QuotaController;
 use App\Middleware\ApiTokenMiddleware;
@@ -28,4 +29,6 @@ Router::addGroup('/api/v1', function () {
         Router::addRoute(['POST', 'PUT'], '[/]', [AgentQuotasPolicyController::class, 'store']);
         Router::delete('/{id}[/]', [AgentQuotasPolicyController::class, 'delete']);
     });
+
+    Router::get('/agent[/]', [AgentController::class, 'index']);
 }, ['middleware' => [CorsMiddleware::class, ApiTokenMiddleware::class]]);
