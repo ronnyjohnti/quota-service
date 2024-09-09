@@ -33,6 +33,12 @@ git clone https://github.com/secultce/quota-service.git
 cd quota-service
 ```
 
+### Copiar o .env.example e alterar os valores para o seu ambiente
+```shell
+cp .env.example .env
+```
+ou configurar diretamente no compose.yml na seção environment do serviço quota-service.
+
 ### Subir serviços com o Docker
 Localmente pode usar o `docker compose up`.
 > [!IMPORTANT]
@@ -42,8 +48,8 @@ docker compose exec quota-service php bin/hyperf.php migrate
 ```
 
 > [!NOTE]
-> O compose.yml está configurado para ambiente de desenvolvimento com o comando 'server:watch'
-> Para trocar para produção, basta alterar para start no 'compose.yml'
+> O compose.yml está configurado para ambiente de desenvolvimento com o comando `server:watch`
+> Para trocar para produção, basta alterar para `start` no compose.yml
 
 # Documentação
 ## Diagrama ER
