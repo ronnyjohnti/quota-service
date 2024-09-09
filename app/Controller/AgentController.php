@@ -27,6 +27,7 @@ class AgentController extends AbstractController
     )]
     public function index(): ResponseInterface
     {
+        $filterTerm = $this->request->query('filter_term') ?? '';
         $filterIds = explode(',', $this->request->query('filter_agent_ids') ?? '');
         if (count($filterIds) !== 1 or $filterIds[0] !== '') {
             $agentIds = $filterIds;
@@ -41,9 +42,10 @@ class AgentController extends AbstractController
 
         $agents = $query->findMany($agentIds);
 
-        if (count($filterIds) !== 1 or $filterIds[0] !== '') {
-            $agents = $agents->filter(function ($agent) {
-                return preg_match('/[R|r]acial/', implode(
+        if (!empty($filterTerm)) {
+            $terms = implode(')|(', explode(',', $filterTerm));
+            $agents = $agents->filter(function ($agent) use ($terms) {
+                return preg_match('/(' . $terms . ')/', implode(
                     '',
                     array_map(fn ($value) => $value['quotas_policy']['name'], $agent->quotasPolicy->toArray())
                 ));
