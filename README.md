@@ -47,6 +47,11 @@ Rodar as migrations:
 docker compose exec quota-service php bin/hyperf.php migrate
 ```
 
+### Caso precise gerar novamente o Swagger, utilizar o comando:
+```shell
+docker compose exec quota-service php bin/hyperf.php gen:swagger
+```
+
 > [!NOTE]
 > O compose.yml está configurado para ambiente de desenvolvimento com o comando `server:watch`
 > Para trocar para produção, basta alterar para `start` no compose.yml
