@@ -17,6 +17,34 @@ Esse é um serviço criado para configurar e armazenar políticas afirmativas pa
 - Extensão Redis PHP
 - Banco de Dados MariaDB ou MySQL (Caso não queira utilizar o configurado no [compose.yml](./compose.yml))
 
+# Instalação
+### Clone do projeto
+SSH
+```shell
+git clone git@github.com:secultce/quota-service.git
+```
+HTTPS:
+```shell
+git clone https://github.com/secultce/quota-service.git
+```
+
+### Acessar o diretório
+```shell
+cd quota-service
+```
+
+### Subir serviços com o Docker
+Localmente pode usar o `docker compose up`.
+> [!IMPORTANT]
+Rodar as migrations:
+```shell
+docker compose exec quota-service php bin/hyperf.php migrate
+```
+
+> [!NOTE]
+> O compose.yml está configurado para ambiente de desenvolvimento com o comando 'server:watch'
+> Para trocar para produção, basta alterar para start no 'compose.yml'
+
 # Documentação
 ## Diagrama ER
 
@@ -32,6 +60,8 @@ erDiagram
     integer           id                 PK
     varchar(255)      name
     varchar(500)      description
+    boolean           show_in_dashboard
+    boolean           show_in_opportunity
     integer           validity_duration
     integer           status
     integer           created_by         FK
