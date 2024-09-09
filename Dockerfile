@@ -24,8 +24,6 @@ RUN apk update \
     php83-pdo_pgsql \
     php83-pgsql \
     && rm -rf /var/cache/apk/* \
-#    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-#    && docker-php-ext-install pgsql pdo_pgsql \
     && set -ex \
     # show php version and extensions
     && php -v \
@@ -54,7 +52,7 @@ WORKDIR /opt/www
 # RUN composer install --no-dev --no-scripts
 
 COPY . /opt/www
-RUN composer install --no-dev -o && php bin/hyperf.php
+RUN composer install --no-dev -o && composer update && php bin/hyperf.php && php bin/hyperf.php gen:swagger
 
 EXPOSE 9501
 

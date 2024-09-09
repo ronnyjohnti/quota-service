@@ -19,7 +19,12 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
     SCAN_CACHEABLE=(true)
 
 # update
-RUN set -ex \
+RUN apk update \
+    && apk add --no-cache postgresql-dev \
+    php83-pdo_pgsql \
+    php83-pgsql \
+    && rm -rf /var/cache/apk/* \
+    && set -ex \
     # show php version and extensions
     && php -v \
     && php -m \
@@ -47,7 +52,7 @@ WORKDIR /opt/www
 # RUN composer install --no-dev --no-scripts
 
 COPY . /opt/www
-RUN print "\n" | composer install -o && php bin/hyperf.php
+RUN print "\n" | composer install -o && composer update && php bin/hyperf.php && php bin/hyperf.php gen:swagger
 
 EXPOSE 9501
 

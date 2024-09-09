@@ -3,11 +3,13 @@ services:
     container_name: quota-service
 #    image: hyperf/hyperf:8.3-alpine-v3.19-swoole-slim
     build:
+      context: .
       dockerfile: ./Dockerfile
-    working_dir: /app
-    entrypoint: [ "php", "bin/hyperf.php", "server:watch" ]
-    volumes:
-      - ./:/app
+      # Development params
+#    working_dir: /opt/www
+#    entrypoint: [ "php", "bin/hyperf.php", "server:watch" ]
+#    volumes:
+#      - ./:/opt/www
     ports:
       - '9501:9501'
     environment:
@@ -46,11 +48,12 @@ services:
 
 volumes:
   quota-db:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: ./.docker/quota-db
+    # Development params
+#    driver: local
+#    driver_opts:
+#      o: bind
+#      type: none
+#      device: ./.docker/quota-db
 
 networks:
   lab:
