@@ -4,6 +4,7 @@ declare(strict_types=1);
 use App\Controller\AgentController;
 use App\Controller\AgentQuotasPolicyController;
 use App\Controller\QuotaController;
+use App\Controller\TiebreakRuleController;
 use App\Middleware\ApiTokenMiddleware;
 use App\Middleware\CorsMiddleware;
 use Hyperf\HttpServer\Router\Router;
@@ -31,4 +32,12 @@ Router::addGroup('/api/v1', function () {
     });
 
     Router::get('/agent[/]', [AgentController::class, 'index']);
+
+    Router::addGroup('/tiebreak-rules', function () {
+        Router::get('[/]', [TiebreakRuleController::class, 'index']);
+        Router::get('/{id}[/]', [TiebreakRuleController::class, 'show']);
+        Router::post('[/]', [TiebreakRuleController::class, 'store']);
+        Router::put('/{id}[/]', [TiebreakRuleController::class, 'update']);
+        Router::delete('/{id}[/]', [TiebreakRuleController::class, 'delete']);
+    });
 }, ['middleware' => [CorsMiddleware::class, ApiTokenMiddleware::class]]);

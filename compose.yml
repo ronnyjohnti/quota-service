@@ -6,10 +6,10 @@ services:
       context: .
       dockerfile: ./Dockerfile
       # Development params
-#    working_dir: /opt/www
-#    entrypoint: [ "php", "bin/hyperf.php", "server:watch" ]
-#    volumes:
-#      - ./:/opt/www
+    working_dir: /opt/www
+    entrypoint: [ "php", "bin/hyperf.php", "server:watch" ]
+    volumes:
+      - ./:/opt/www
     ports:
       - '9501:9501'
     environment:
@@ -49,11 +49,11 @@ services:
 volumes:
   quota-db:
     # Development params
-#    driver: local
-#    driver_opts:
-#      o: bind
-#      type: none
-#      device: ./.docker/quota-db
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./.docker/quota-db
 
 networks:
   lab:
