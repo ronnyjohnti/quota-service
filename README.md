@@ -65,6 +65,10 @@ erDiagram
   aqp }o..|| usr   : references
   aqp }o..|{ qp    : references
   qp  }o..|| usr   : references
+  
+  ot  }o..|| tr    : references
+  ot  }o..|| usr   : references
+  tr  }o..|| usr   : references
 
   qp[quotas_policies]{
     integer           updated_at
@@ -93,5 +97,30 @@ erDiagram
     integer           deleted_by         FK
     timestamp         created_at
     timestamp         deleted_at
+  }
+  
+  tr[tiebreak_rules]{
+    integer           id                 PK
+    varchar(255)      rule
+    varchar(500)      description
+    integer           created_by         FK
+    integer           updated_by         FK
+    integer           deleted_by         FK
+    timestamp         created_at
+    timestamp         updated_at
+    timestamp         deleted_at
+  }
+  
+  ot[opportunity_tiebreak_rules]{
+      integer           id                 PK
+      integer           opportunity_id     FK
+      integer           tiebreak_rule_id   FK
+      integer           sort_order
+      integer           created_by         FK
+      integer           updated_by         FK
+      integer           deleted_by         FK
+      timestamp         created_at
+      timestamp         updated_at
+      timestamp         deleted_at
   }
 ```
