@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace HyperfTest;
 
 use Hyperf\Testing\Client;
-use PHPUnit\Framework\TestCase;
+use Hyperf\Testing\TestCase;
 
 use function Hyperf\Support\make;
 
